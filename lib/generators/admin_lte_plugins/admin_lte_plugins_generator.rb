@@ -6,34 +6,78 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
   def main
     begin
       send("install_#{plugin_name}")
+    rescue NoMethodError => e
+      puts "Unknown plugin : '#{plugin_name}'"
     rescue => e
-      puts "ok"
+      puts e
     end
   end
 
   private
 
   def install_j_vector_map
-    copy_file 'jVectorMap/jquery-jvectormap-1.2.2.css', 'vendor/assets/stylesheets/jquery-jvectormap-1.2.2.css'
-    copy_file 'jVectorMap/jquery-jvectormap-1.2.2.min.js', 'vendor/assets/javascripts/jquery-jvectormap-1.2.2.min.js'
-    copy_file 'jVectorMap/jquery-jvectormap-world-mill-en.js', 'vendor/assets/javascripts/jquery-jvectormap-world-mill-en.js'
-
-    inject_into_file 'app/assets/javascripts/application.js', "//= require jquery-jvectormap-1.2.2.min\n", before: '//= require_tree .'
-    inject_into_file 'app/assets/javascripts/application.js', "//= require jquery-jvectormap-world-mill-en\n", before: '//= require_tree .'
-
-    inject_into_file 'app/assets/stylesheets/application.css', " *= require jquery-jvectormap-1.2.2\n", before: ' *= require_self'
+    add_plugin('jVectorMap', 'css', 'jquery-jvectormap-1.2.2')
+    add_plugin('jVectorMap', 'js', 'jquery-jvectormap-1.2.2.min')
+    add_plugin('jVectorMap', 'js', 'jquery-jvectormap-world-mill-en')
   end
 
   def install_chart_js
-    copy_file 'ChartJS/Chart.js', 'vendor/assets/javascripts/Chart.js'
-
-    inject_into_file 'app/assets/javascripts/application.js', "//= require Chart\n", before: '//= require_tree .'
+    add_plugin('ChartJS', 'js', 'chart')
   end
 
   def install_sparkline
-    copy_file 'Sparkline/jquery.sparkline.js', 'vendor/assets/javascripts/jquery.sparkline.js'
+    add_plugin('Sparkline', 'js', 'jquery.sparkline')
+  end
 
-    inject_into_file 'app/assets/javascripts/application.js', "//= require jquery.sparkline\n", before: '//= require_tree .'
+  def install_bootstrap_slider
+    add_plugin('bootstrap-slider', 'css', 'slider')
+    add_plugin('bootstrap-slider', 'js', 'bootstrap-slider')
+  end
+
+  def install_bootstrap_wysihtml5
+    add_plugin('bootstrap-wysihtml5', 'css', 'bootstrap3-wysihtml5')
+    add_plugin('bootstrap-wysihtml5', 'js', 'bootstrap3-wysihtml5')
+  end
+
+  def install_fullcalendar
+    add_plugin('fullcalendar', 'css')
+    add_plugin('fullcalendar', 'js')
+  end
+
+  def install_knob
+    add_plugin('knob', 'js', 'jquery.knob')
+  end
+
+  def install_timepicker
+    add_plugin('timepicker', 'css', 'bootstrap-timepicker')
+    add_plugin('timepicker', 'js', 'bootstrap-timepicker')
+  end
+
+  def install_pace
+    add_plugin('pace', 'js')
+  end
+
+  def install_morris
+    add_plugin('morris', 'js')
+    add_plugin('morris', 'css')
+  end
+
+  def install_daterangepicker
+    add_plugin('daterangepicker', 'js')
+    add_plugin('daterangepicker', 'css', 'daterangepicker-bs3')
+  end
+  # ------------------------------ #
+
+  def add_plugin(plugin_directory, type, plugin_file = nil)
+    plugin_file ||= plugin_directory
+    plugin_file_with_extension = "#{plugin_file}.#{type}"
+
+    copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/javascripts/#{plugin_file_with_extension}"
+
+    directory = 'app/assets/javascripts/application.js'
+    directory = 'app/assets/stylesheets/application.css' if type == 'css'
+
+    inject_into_file directory, "//= require #{plugin_file}\n", before: '//= require_tree .'
   end
 
 end
