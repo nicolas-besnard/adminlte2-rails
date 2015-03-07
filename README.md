@@ -22,15 +22,15 @@ Then, generate the default template:
 
     $ rails g admin_lte
 
-## Plugins
+# Plugins
 
-# Add a new plugins
+## Add a new plugins
 
 By default, there's no plugin installed. However, I've created a generator to help you install them
 
     $ rails g admin_lte_plugins PLUGIN_NAME
 
-# Missing plugins
+## Missing plugins
 
 * [ ] ckeditor
 * [ ] datatables
@@ -40,10 +40,6 @@ By default, there's no plugin installed. However, I've created a generator to he
 * [ ] input-mask
 * [ ] ionslider
 * [ ] slimScroll
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
