@@ -18,6 +18,25 @@ Or install it yourself as:
 
     $ gem install adminlte2-rails
 
+## Plugins
+
+# Add a new plugins
+
+By default, there's no plugin installed. However, I've created a generator to help you install them
+
+   $ rails g admin_lte_plugins PLUGIN_NAME
+
+# Missing plugins
+
+* [ ] ckeditor
+* [ ] datatables
+* [ ] fastclick
+* [ ] flot
+* [ ] iCheck
+* [ ] input-mask
+* [ ] ionslider
+* [ ] slimScroll
+
 ## Usage
 
 TODO: Write usage instructions here
