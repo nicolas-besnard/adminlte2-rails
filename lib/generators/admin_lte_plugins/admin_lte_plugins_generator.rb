@@ -66,18 +66,27 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
     add_plugin('daterangepicker', 'js')
     add_plugin('daterangepicker', 'css', 'daterangepicker-bs3')
   end
+
+  def install_colorpicker
+    add_plugin('colorpicker', 'js', 'bootstrap-colorpicker')
+    add_plugin('colorpicker', 'css', 'bootstrap-colorpicker')
+    
+    plugin_directory = File.expand_path('../templates', __FILE__) + '/colorpicker'
+    directory "#{plugin_directory}/img", "vendor/assets/stylesheets/img"
+  end
+
   # ------------------------------ #
 
   def add_plugin(plugin_directory, type, plugin_file = nil)
     plugin_file ||= plugin_directory
     plugin_file_with_extension = "#{plugin_file}.#{type}"
 
-    copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/javascripts/#{plugin_file_with_extension}"
-
-    directory = 'app/assets/javascripts/application.js'
-    directory = 'app/assets/stylesheets/application.css' if type == 'css'
-
-    inject_into_file directory, "//= require #{plugin_file}\n", before: '//= require_tree .'
+    if type == 'css'
+      inject_into_file  'app/assets/stylesheets/application.css', " *= require #{plugin_file}\n", before: ' *= require_self'
+      copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/stylesheets/#{plugin_file_with_extension}"
+    else
+      inject_into_file  'app/assets/javascripts/application.js', "//= require #{plugin_file}\n", before: '//= require_tree .'
+      copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/javascripts/#{plugin_file_with_extension}"
+    end
   end
-
 end
