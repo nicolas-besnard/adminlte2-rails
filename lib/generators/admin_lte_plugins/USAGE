@@ -1,0 +1,12 @@
+Description:
+  Install a specific plugin
+
+Plugins Available:
+  - jVectorMap (j_vector_map)
+
+
+Example:
+  rails generate admin_lte_plugins Thing
+
+  This will create:
+    what/will/it/create
