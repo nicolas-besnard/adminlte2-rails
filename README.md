@@ -1,6 +1,6 @@
-# Adminlte2::Rails
+# AdminLTE V2 Rails Gem
 
-TODO: Write a gem description
+[AdminLTE](http://www.almsaeedstudio.com/) is a premium Bootstrap theme for backend.
 
 ## Installation
 
@@ -17,6 +17,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install adminlte2-rails
+    
+Then, generate the default template:
+
+    $ rails g admin_lte
 
 ## Plugins
 
@@ -24,7 +28,7 @@ Or install it yourself as:
 
 By default, there's no plugin installed. However, I've created a generator to help you install them
 
-   $ rails g admin_lte_plugins PLUGIN_NAME
+    $ rails g admin_lte_plugins PLUGIN_NAME
 
 # Missing plugins
 
@@ -43,7 +47,7 @@ TODO: Write usage instructions here
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/adminlte2-rails/fork )
+1. Fork it ( https://github.com/nicolas-besnard/adminlte2-rails/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
