@@ -70,9 +70,17 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
   def install_colorpicker
     add_plugin('colorpicker', 'js', 'bootstrap-colorpicker')
     add_plugin('colorpicker', 'css', 'bootstrap-colorpicker')
-    
+
     plugin_directory = File.expand_path('../templates', __FILE__) + '/colorpicker'
     directory "#{plugin_directory}/img", "vendor/assets/stylesheets/img"
+  end
+
+  def install_datepicker
+    add_plugin('datepicker', 'js', 'bootstrap-datepicker')
+    add_plugin('datepicker', 'css', 'datepicker3')
+
+    plugin_directory = File.expand_path('../templates', __FILE__) + '/datepicker'
+    directory "#{plugin_directory}/locales", 'vendor/assets/javascripts/locales'
   end
 
   # ------------------------------ #
