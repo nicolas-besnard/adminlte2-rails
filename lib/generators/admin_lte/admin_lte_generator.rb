@@ -1,13 +1,16 @@
 class AdminLteGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
+  class_option :stylesheet_engine
 
   def main
+    stylesheet_extension = options[:stylesheet_engine] || 'css'
+
     inject_into_file 'app/assets/javascripts/application.js', "//= require bootstrap\n", before: '//= require_tree .'
     inject_into_file 'app/assets/javascripts/application.js', "//= require app\n", before: '//= require_tree .'
 
-    inject_into_file 'app/assets/stylesheets/application.css', " *= require bootstrap\n", before: ' *= require_self'
-    inject_into_file 'app/assets/stylesheets/application.css', " *= require AdminLTE\n", before: ' *= require_self'
-    inject_into_file 'app/assets/stylesheets/application.css', " *= require skins/skin-blue\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require bootstrap\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require skins/skin-blue\n", before: ' *= require_self'
 
     copy_file '_admin_lte_2_header.html.erb', 'app/views/layouts/_admin_lte_2_header.html.erb'
     copy_file '_admin_lte_2_sidebar.html.erb', 'app/views/layouts/_admin_lte_2_sidebar.html.erb'
