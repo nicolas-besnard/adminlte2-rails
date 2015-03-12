@@ -1,6 +1,7 @@
 class AdminLtePluginsGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
   argument :plugin_name, type: :string
+  class_option :stylesheet_engine
 
   #
   def main
@@ -90,7 +91,7 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
   def install_icheck
     add_plugin('iCheck', 'js')
 
-    inject_into_file  'app/assets/stylesheets/application.css', " *= require iCheck/square/blue\n", before: ' *= require_self'
+    inject_into_application_stylesheet('iCheck/square/blue')
 
     plugin_directory = File.expand_path('../templates', __FILE__) + '/iCheck'
     %w{flat futurico line minimal polaris square}.each do |dir|
@@ -100,15 +101,26 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
 
   # ------------------------------ #
 
+  def inject_into_application_stylesheet(plugin)
+    stylesheet_extension = options[:stylesheet_engine] || 'css'
+   inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require #{plugin}\n", before: ' *= require_self'
+  end
+
+  def inject_into_application_javascript(plugin, before: '//= require app')
+    inject_into_file 'app/assets/javascripts/application.js', "//= require #{plugin}\n", before: before
+  end
+
   def add_plugin(plugin_directory, type, plugin_file = nil)
     plugin_file ||= plugin_directory
     plugin_file_with_extension = "#{plugin_file}.#{type}"
 
+    stylesheet_extension = options[:stylesheet_engine] || 'css'
+
     if type == 'css'
-      inject_into_file  'app/assets/stylesheets/application.css', " *= require #{plugin_file}\n", before: ' *= require_self'
+      inject_into_application_stylesheet(plugin_file)
       copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/stylesheets/#{plugin_file_with_extension}"
     else
-      inject_into_file  'app/assets/javascripts/application.js', "//= require #{plugin_file}\n", before: '//= require app'
+      inject_into_application_javascript(plugin_file)
       copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/javascripts/#{plugin_file_with_extension}"
     end
   end
