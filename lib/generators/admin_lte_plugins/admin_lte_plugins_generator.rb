@@ -83,6 +83,10 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
     directory "#{plugin_directory}/locales", 'vendor/assets/javascripts/locales'
   end
 
+  def install_slimscroll
+    add_plugin('slimscroll', 'js', 'jquery.slimscroll')
+  end
+
   # ------------------------------ #
 
   def add_plugin(plugin_directory, type, plugin_file = nil)
