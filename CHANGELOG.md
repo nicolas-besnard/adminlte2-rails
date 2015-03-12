@@ -3,5 +3,8 @@
 - Install Generator:
   - Create Login view without including Devise
 - New plugins:
-  - [slimscroll](https://github.com/rochal/jQuery-slimScroll)
+  - [slimScroll](https://github.com/rochal/jQuery-slimScroll)
+  - [iCheck](https://github.com/fronteed/iCheck)
+- FIX:
+  - Install Generator: Add stylesheet_engine when injecting file
 

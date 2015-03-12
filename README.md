@@ -32,10 +32,10 @@ By default, there's no plugin installed. However, I've created a generator to he
 * [ ] datatables
 * [ ] fastclick
 * [ ] flot
-* [ ] iCheck
+* [x] iCheck
 * [ ] input-mask
 * [ ] ionslider
-* [ ] slimScroll
+* [x] slimScroll
 
 ## Usage
 

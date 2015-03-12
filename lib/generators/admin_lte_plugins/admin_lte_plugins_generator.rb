@@ -87,6 +87,17 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
     add_plugin('slimScroll', 'js', 'jquery.slimscroll')
   end
 
+  def install_icheck
+    add_plugin('iCheck', 'js')
+
+    inject_into_file  'app/assets/stylesheets/application.css', " *= require iCheck/square/blue\n", before: ' *= require_self'
+
+    plugin_directory = File.expand_path('../templates', __FILE__) + '/iCheck'
+    %w{flat futurico line minimal polaris square}.each do |dir|
+      directory "#{plugin_directory}/#{dir}", "vendor/assets/stylesheets/iCheck/#{dir}"
+    end
+  end
+
   # ------------------------------ #
 
   def add_plugin(plugin_directory, type, plugin_file = nil)
