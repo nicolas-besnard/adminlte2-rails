@@ -97,7 +97,7 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
       inject_into_file  'app/assets/stylesheets/application.css', " *= require #{plugin_file}\n", before: ' *= require_self'
       copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/stylesheets/#{plugin_file_with_extension}"
     else
-      inject_into_file  'app/assets/javascripts/application.js', "//= require #{plugin_file}\n", before: '//= require_tree .'
+      inject_into_file  'app/assets/javascripts/application.js', "//= require #{plugin_file}\n", before: '//= require app'
       copy_file "#{plugin_directory}/#{plugin_file_with_extension}", "vendor/assets/javascripts/#{plugin_file_with_extension}"
     end
   end
