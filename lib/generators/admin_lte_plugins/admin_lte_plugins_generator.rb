@@ -84,7 +84,7 @@ class AdminLtePluginsGenerator < Rails::Generators::Base
   end
 
   def install_slimscroll
-    add_plugin('slimscroll', 'js', 'jquery.slimscroll')
+    add_plugin('slimScroll', 'js', 'jquery.slimscroll')
   end
 
   # ------------------------------ #
