@@ -9,8 +9,8 @@ class AdminLte2Generator < Rails::Generators::Base
     inject_into_file 'app/assets/javascripts/application.js', "//= require app\n", before: '//= require_tree .'
 
     inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require bootstrap\n", before: ' *= require_self'
-    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE\n", before: ' *= require_self'
-    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require skins/skin-blue\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE/AdminLTE\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE/skins/skin-blue\n", before: ' *= require_self'
 
     copy_file '_admin_lte_2_header.html.erb', 'app/views/layouts/_admin_lte_2_header.html.erb'
     copy_file '_admin_lte_2_sidebar.html.erb', 'app/views/layouts/_admin_lte_2_sidebar.html.erb'
