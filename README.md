@@ -1,6 +1,6 @@
-# Adminlte2::Rails
+# AdminLTE 2 Rails Gem
 
-TODO: Write a gem description
+[AdminLTE](https://github.com/almasaeed2010/AdminLTE) is a premium Bootstrap theme for backend.
 
 ## Installation
 
@@ -18,18 +18,18 @@ Or install it yourself as:
 
     $ gem install adminlte2-rails
 
+
 Then, generate the default template:
 
     $ bin/rails generate admin_lte2
 
+# Plugins
 
-## Plugins
-
-# Add a new plugins
+## Add a new plugins
 
 By default, there's no plugin installed. However, I've created a generator to help you install them
 
-   $ rails g admin_lte2_plugins PLUGIN_NAME
+    $ rails g admin_lte2_plugins PLUGIN_NAME
 
 # Plugins available
 
@@ -49,7 +49,7 @@ By default, there's no plugin installed. However, I've created a generator to he
   - [slimScroll](https://github.com/rochal/jQuery-slimScroll) (slimScroll)
   - [iCheck](https://github.com/fronteed/iCheck) (icheck)
 
-# Plugins missings
+# Plugins missing
 
 * [ ] ckeditor
 * [ ] datatables
