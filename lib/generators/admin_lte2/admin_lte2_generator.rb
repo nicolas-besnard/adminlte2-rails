@@ -1,4 +1,4 @@
-class AdminLteGenerator < Rails::Generators::Base
+class AdminLte2Generator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
   class_option :stylesheet_engine
 

@@ -1,4 +1,4 @@
-class AdminLtePluginsGenerator < Rails::Generators::Base
+class AdminLte2PluginsGenerator < Rails::Generators::Base
   source_root File.expand_path('../templates', __FILE__)
   argument :plugin_name, type: :string
   class_option :stylesheet_engine

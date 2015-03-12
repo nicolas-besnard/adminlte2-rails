@@ -17,7 +17,7 @@ Plugins Available:
   - Date Picker (datepicker)
 
 Example:
-  rails generate admin_lte_plugins colorpicker
+  rails generate admin_lte2_plugins colorpicker
 
   This will create:
     create  vendor/assets/stylesheets/img
