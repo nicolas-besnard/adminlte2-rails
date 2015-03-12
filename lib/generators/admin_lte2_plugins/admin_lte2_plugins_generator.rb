@@ -103,7 +103,7 @@ class AdminLte2PluginsGenerator < Rails::Generators::Base
 
   def inject_into_application_stylesheet(plugin)
     stylesheet_extension = options[:stylesheet_engine] || 'css'
-   inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require #{plugin}\n", before: ' *= require_self'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require #{plugin}\n", before: ' *= require_self'
   end
 
   def inject_into_application_javascript(plugin, before: '//= require app')

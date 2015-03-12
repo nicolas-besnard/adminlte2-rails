@@ -5,12 +5,12 @@ class AdminLte2Generator < Rails::Generators::Base
   def main
     stylesheet_extension = options[:stylesheet_engine] || 'css'
 
-    inject_into_file 'app/assets/javascripts/application.js', "//= require bootstrap\n", before: '//= require_tree .'
-    inject_into_file 'app/assets/javascripts/application.js', "//= require app\n", before: '//= require_tree .'
+    inject_into_application_javascript('bootstrap', before: '//= require_tree')
+    inject_into_application_javascript('app', before: '//= require_tree')
 
-    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require bootstrap\n", before: ' *= require_self'
-    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE/AdminLTE\n", before: ' *= require_self'
-    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require AdminLTE/skins/skin-blue\n", before: ' *= require_self'
+    inject_into_application_stylesheet('bootstrap')
+    inject_into_application_stylesheet('AdminLTE/AdminLTE')
+    inject_into_application_stylesheet('AdminLTE/skins/skin-blue')
 
     copy_file '_admin_lte_2_header.html.erb', 'app/views/layouts/_admin_lte_2_header.html.erb'
     copy_file '_admin_lte_2_sidebar.html.erb', 'app/views/layouts/_admin_lte_2_sidebar.html.erb'
@@ -39,4 +39,16 @@ class AdminLte2Generator < Rails::Generators::Base
       "
     end
   end
+
+  private
+
+  def inject_into_application_stylesheet(file)
+    stylesheet_extension = options[:stylesheet_engine] || 'css'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", " *= require #{file}\n", before: ' *= require_self'
+  end
+
+  def inject_into_application_javascript(file, before: '//= require app')
+    inject_into_file 'app/assets/javascripts/application.js', "//= require #{file}\n", before: before
+  end
+
 end
