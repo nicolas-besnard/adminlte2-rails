@@ -99,6 +99,13 @@ class AdminLte2PluginsGenerator < Rails::Generators::Base
     end
   end
 
+  def install_toastr
+    add_plugin('toastr', 'js', 'toastr.min')
+    add_plugin('toastr', 'css', 'toastr.min')
+
+    copy_file 'toastr/toastr.js.map', 'vendor/assets/stylesheets/toastr.js.map'
+  end
+
   # ------------------------------ #
 
   def inject_into_application_stylesheet(plugin)

@@ -48,6 +48,7 @@ By default, there's no plugin installed. However, I've created a generator to he
   - [Date Picker](https://github.com/eternicode/bootstrap-datepicker) (datepicker)
   - [slimScroll](https://github.com/rochal/jQuery-slimScroll) (slimScroll)
   - [iCheck](https://github.com/fronteed/iCheck) (icheck)
+  - [Toastr](https://github.com/CodeSeven/toastr) (toastr)
 
 # Plugins missing
 

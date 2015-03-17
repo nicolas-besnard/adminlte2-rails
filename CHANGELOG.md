@@ -1,4 +1,8 @@
-## 0.0.3 (In Progress)
+## 0.0.4 (WIP)
+- New plugins:
+  - [toastr](https://github.com/CodeSeven/toastr)
+
+## 0.0.3
 
 - Install Generator:
   - Create Login view without including Devise

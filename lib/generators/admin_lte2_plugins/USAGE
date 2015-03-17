@@ -17,6 +17,7 @@ Plugins Available:
   - Date Picker (datepicker)
   - slimScroll (slimScroll)
   - iCheck (icheck)
+  - Toastr (toastr)
 
 Example:
   rails generate admin_lte2_plugins colorpicker
