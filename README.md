@@ -1,3 +1,7 @@
+[![Gem](https://img.shields.io/gem/v/adminlte2-rails.svg?style=flat-square)](http://rubygems.org/gems/adminlte2-rails)
+
+* * *
+
 # AdminLTE 2 Rails Gem
 
 [AdminLTE](https://github.com/almasaeed2010/AdminLTE) is a premium Bootstrap theme for backend.
