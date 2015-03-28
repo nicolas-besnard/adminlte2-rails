@@ -16,7 +16,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="skin-blue">
+<body class="skin-blue fixed <%= params[:controller].parameterize %> <%= action_name %>">
   <div class="wrapper">
 
     <%= render partial: 'layouts/admin_lte_2_header' %>
