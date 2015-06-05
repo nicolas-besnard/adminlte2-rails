@@ -1,4 +1,10 @@
-## 0.0.4 (WIP)
+## 0.0.6 (WIP)
+
+## 0.0.5
+- Update HTML / JS / CSS to AdminLTE 2.1.0
+- Add Sidebar introduced in AdminteLTE 2.1.0
+
+## 0.0.4
 - Layout: add alert
 - Layout: Add controller / action name to body
 - New plugins:
