@@ -5,12 +5,13 @@ class AdminLte2Generator < Rails::Generators::Base
   def main
     stylesheet_extension = options[:stylesheet_engine] || 'css'
 
-    inject_into_application_javascript('bootstrap', before: '//= require_tree')
-    inject_into_application_javascript('app', before: '//= require_tree')
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", "@import \"AdminLTE/skins/skin-blue\";\n", after: ' */'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", "@import \"AdminLTE/AdminLTE\";\n", after: ' */'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", "@import \"bootstrap\";\n", after: ' */'
+    inject_into_file "app/assets/stylesheets/application.#{stylesheet_extension}", "\n@import \"bootstrap-sprockets\";\n", after: ' */'
 
-    inject_into_application_stylesheet('bootstrap')
-    inject_into_application_stylesheet('AdminLTE/AdminLTE')
-    inject_into_application_stylesheet('AdminLTE/skins/skin-blue')
+    inject_into_file "app/assets/javascripts/application.js", "//= require bootstrap-sprockets\n", after: "//= require jquery\n"
+    inject_into_application_javascript('app', before: '//= require_tree')
 
     copy_file '_admin_lte_2_header.html.erb', 'app/views/layouts/_admin_lte_2_header.html.erb'
     copy_file '_admin_lte_2_sidebar.html.erb', 'app/views/layouts/_admin_lte_2_sidebar.html.erb'
