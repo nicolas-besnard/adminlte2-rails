@@ -1,4 +1,6 @@
 ## 0.0.4 (WIP)
+- Layout: add alert
+- Layout: Add controller / action name to body
 - New plugins:
   - [toastr](https://github.com/CodeSeven/toastr)
 
