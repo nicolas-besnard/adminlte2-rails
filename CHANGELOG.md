@@ -1,4 +1,7 @@
-## 0.0.6 (WIP)
+## 0.0.7 (WIP)
+
+# 0.0.6
+- Remove Bootstrap's files and add it as dependency
 
 ## 0.0.5
 - Update HTML / JS / CSS to AdminLTE 2.1.0
