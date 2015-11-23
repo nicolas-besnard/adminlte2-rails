@@ -1,0 +1,6 @@
+{
+  "directory": "assets",
+  "ignoredDependencies": [
+  "jquery"
+  ]
+}

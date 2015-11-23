@@ -1,0 +1,23 @@
+{
+  "name": "assets",
+  "homepage": "https://github.com/nicolas-besnard/adminlte2-rails",
+  "authors": [
+    "Nicolas Besnard <besnard.nicolas@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
