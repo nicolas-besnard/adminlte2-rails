@@ -1,8 +1,10 @@
-# Adminlte2::Rails
+[![Gem](https://img.shields.io/gem/v/adminlte2-rails.svg?style=flat-square)](http://rubygems.org/gems/adminlte2-rails)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/adminlte2/rails`. To experiment with that code, run `bin/console` for an interactive prompt.
+* * *
 
-TODO: Delete this and the text above, and describe your gem
+# AdminLTE 2 Rails Gem
+
+[AdminLTE](https://github.com/almasaeed2010/AdminLTE) is a premium Bootstrap theme for backend.
 
 ## Installation
 
@@ -20,17 +22,15 @@ Or install it yourself as:
 
     $ gem install adminlte2-rails
 
-## Usage
 
-TODO: Write usage instructions here
+Then, generate the default template:
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+    $ bin/rails generate admin_lte2:install
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/adminlte2-rails. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
-
+1. Fork it ( https://github.com/nicolas-besnard/adminlte2-rails/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE2 Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed <%= params[:controller].parameterize %> <%= action_name %>">
+<!-- Site wrapper -->
+<div class="wrapper">
+
+  <%= render 'layouts/adminlte2/header' %>
+  <%= render 'layouts/adminlte2/main_sidebar' %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <section class="content-header">
+      <h1>
+        <%= yield :page_title  %>
+        <small><%= yield :page_subtitle %></small>
+      </h1>
+      <!--<ol class="breadcrumb">-->
+      <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+      <!--<li><a href="#">Examples</a></li>-->
+      <!--<li class="active">Blank page</li>-->
+      <!--</ol>-->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <% if notice %>
+        <div class="alert alert-success alert-dismissable">
+          <i class="fa fa-check"></i>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <b><%= notice %></b>
+        </div>
+      <% end %>
+
+      <% if alert %>
+        <div class="alert alert-danger alert-dismissable">
+          <i class="fa fa-ban"></i>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <% if alert.respond_to?(:each) %>
+            <ul>
+              <%= alert.each do |a| %>
+                <li><%= a %></li>
+              <% end %>
+            </ul>
+          <% else %>
+            <b><%= alert %></b>
+          <% end %>
+        </div>
+      <% end %>
+      <!-- Default box -->
+      <%= yield %>
+      <!-- /.box -->
+
+    </section>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+
+
+  <!-- Control Sidebar -->
+  <%= render "layouts/adminlte2/control_sidebar" %>
+</div>
+<!-- ./wrapper -->
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
+</html>

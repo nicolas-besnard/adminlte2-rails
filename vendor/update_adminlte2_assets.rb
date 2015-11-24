@@ -1,5 +1,5 @@
 `curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/js/app.min.js --create-dirs -o assets/js/AdminLTE2/app.min.js`
-`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.min.css --create-dirs -o assets/css/AdminLTE2/app.min.js`
+`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.min.css --create-dirs -o assets/css/AdminLTE2/app.min.css`
 
 require 'net/http'
 require 'json'
