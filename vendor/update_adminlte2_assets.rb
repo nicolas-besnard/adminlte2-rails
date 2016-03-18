@@ -1,5 +1,5 @@
-`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/js/app.min.js --create-dirs -o assets/js/AdminLTE2/app.min.js`
-`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.min.css --create-dirs -o assets/css/AdminLTE2/app.min.css`
+`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/js/app.min.js --create-dirs -o assets/javascripts/AdminLTE2/app.min.js`
+`curl https://raw.githubusercontent.com/almasaeed2010/AdminLTE/master/dist/css/AdminLTE.min.css --create-dirs -o assets/stylesheets/AdminLTE2/app.min.css`
 
 require 'net/http'
 require 'json'
@@ -14,6 +14,6 @@ response.each do |file|
   
   if file_name =~ /min.css/i
     file_url = file['download_url']
-    `curl #{file_url} --create-dirs -o assets/css/AdminLTE2/skins/#{file_name}`
+    `curl #{file_url} --create-dirs -o assets/stylesheets/AdminLTE2/skins/#{file_name}`
   end
 end
