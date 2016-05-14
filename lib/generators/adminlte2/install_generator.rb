@@ -15,5 +15,3 @@ class Adminlte2::InstallGenerator < Rails::Generators::Base
     inject_into_file 'app/assets/javascripts/application.js', "//= require AdminLTE2/app.min\n", before: "//= require_tree ."
   end
 end
-
-
